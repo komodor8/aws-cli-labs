@@ -26,3 +26,15 @@ EOF
 
 # Enable AWS CLI auto-prompt on new sessions
 echo "export AWS_CLI_AUTO_PROMPT=on" >> ~/.bashrc
+
+
+# ---------- INSTALL TERRAFORM ----------
+# Add HashiCorp's GPG key
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+# Add the official HashiCorp Linux repo
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
+  | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+# Install Terraform
+sudo apt-get update && sudo apt-get install -y terraform
