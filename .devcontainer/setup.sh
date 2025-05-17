@@ -23,3 +23,6 @@ cat > ~/.aws/config << EOF
 region = eu-west-3
 output = json
 EOF
+
+# Enable AWS CLI auto-prompt on new sessions
+echo "export AWS_CLI_AUTO_PROMPT=on" >> ~/.bashrc
